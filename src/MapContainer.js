@@ -55,7 +55,6 @@ const MapContainer = () => {
             className="ml-2"
             type="text"
             value={selected.lat + "," + selected.lng}
-            // onCopy={(event) => setCoordi(event.target.value)}
             id="coordinates"
           />
           <label htmlFor="name">Enter Your Name</label>
