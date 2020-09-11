@@ -23,8 +23,8 @@ const MapContainer = () => {
     setShow(true);
   };
   const handleClose = () => {
-    const ab = document.getElementById("coordinates").value;
-    console.log(name, ab);
+    const coordinatesValue = document.getElementById("coordinates").value;
+    console.log(name, coordinatesValue);
     setShow(false);
     setName("");
   };
