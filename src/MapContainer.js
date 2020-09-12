@@ -17,7 +17,6 @@ const MapContainer = () => {
   // current lat, lng which is Bhairab Bazar
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((data) => {
-      console.log(data);
       setDefaultCenter({
         lat: data.coords.latitude,
         lng: data.coords.longitude,
