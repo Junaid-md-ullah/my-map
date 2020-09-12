@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -8,16 +8,23 @@ const MapContainer = () => {
   const [selected, setSelected] = useState({});
   const [show, setShow] = useState(false);
   const [name, setName] = useState("");
+  const [defaultCenter, setDefaultCenter] = useState();
 
   const mapStyles = {
     height: "100vh",
     width: "100%",
   };
   // current lat, lng which is Bhairab Bazar
-  const defaultCenter = {
-    lat: 24.058202,
-    lng: 90.985742,
-  };
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((data) => {
+      console.log(data);
+      setDefaultCenter({
+        lat: data.coords.latitude,
+        lng: data.coords.longitude,
+      });
+    });
+  }, []);
+
   const onSelect = (defaultCenter) => {
     setSelected(defaultCenter);
     setShow(true);
